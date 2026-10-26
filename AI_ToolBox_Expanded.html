@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>AI ToolBox — Discover AI Tools</title>
+<style>
+:root{--bg:#0b1120;--panel:#121b2d;--panel2:#18243a;--text:#eef4ff;--muted:#a7b4ca;--line:#293750;--accent:#8b7cff;--accent2:#54d6bd}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 15% 0%,#1a2450 0,transparent 34%),var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1240px;margin:auto;padding:24px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0 24px}.brand{display:flex;align-items:center;gap:12px;font-weight:850;font-size:22px;letter-spacing:-.5px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07101c;font-size:23px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px}
+.hero{padding:40px 0 28px}.eyebrow{color:var(--accent2);font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(34px,5vw,60px);line-height:1.05;letter-spacing:-2px;margin:12px 0}.hero h1 span{background:linear-gradient(90deg,#b6aaff,#69e6d1);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:17px;max-width:720px;line-height:1.7;margin-bottom:24px}
+.searchrow{display:flex;gap:10px;max-width:780px}.search{flex:1;min-width:0;background:#111a2b;border:1px solid #33435e;border-radius:14px;padding:16px 18px;color:var(--text);font-size:15px;outline:none}.search:focus{border-color:var(--accent)}.count{display:flex;align-items:center;justify-content:center;padding:0 18px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#08111e;font-weight:850;white-space:nowrap}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}.stat{border:1px solid var(--line);background:#10192a99;border-radius:12px;padding:12px 16px;color:var(--muted);font-size:13px}.stat b{color:var(--text);font-size:18px;margin-right:6px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin:28px 0 16px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#121b2d;color:var(--muted);padding:9px 13px;border-radius:999px;cursor:pointer;font-size:13px}.filter.active,.filter:hover{background:var(--text);color:#0b1120;border-color:var(--text)}select{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:10px}
+.section-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:22px 0 14px}.section-title h2{font-size:20px;margin:0}.section-title span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);background:linear-gradient(160deg,#152137,#101827);border-radius:17px;padding:17px;display:flex;flex-direction:column;min-height:205px;transition:transform .18s,border-color .18s}.card:hover{transform:translateY(-3px);border-color:#7168c7}.cardtop{display:flex;align-items:center;gap:11px}.appicon{width:43px;height:43px;flex:0 0 43px;border-radius:13px;background:var(--panel2);display:grid;place-items:center;font-size:21px;border:1px solid #34445f}.card h3{font-size:15px;margin:0 0 4px}.type{font-size:11px;color:var(--accent2)}.card p{color:var(--muted);font-size:13px;line-height:1.55;margin:14px 0;flex:1}.bottom{display:flex;justify-content:space-between;align-items:center;gap:8px}.tag{font-size:10px;color:#c8d2e3;background:#253149;border-radius:6px;padding:5px 7px}.visit{font-size:12px;font-weight:750;color:#a99eff}.empty{padding:50px 20px;text-align:center;border:1px dashed var(--line);border-radius:16px;color:var(--muted);display:none}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;color:var(--muted);font-size:12px;line-height:1.7;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:700px){.wrap{padding:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{padding:13px;min-height:220px}.hero{padding-top:25px}.searchrow{flex-direction:column}.count{padding:13px}.brand{font-size:19px}}@media(max-width:430px){.grid{grid-template-columns:1fr}.card{min-height:unset}.hero h1{letter-spacing:-1px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="brand" href="#"><span class="logo">✦</span><span>AI ToolBox</span></a><span class="pill">Free directory · Mobile + Desktop</span></header>
+<section class="hero">
+<div class="eyebrow">Your AI discovery hub</div>
+<h1>Find the right AI tool<br><span>for almost any task.</span></h1>
+<p>Explore AI for writing, research, design, video, audio, coding, marketing, productivity, automation and more — all in one searchable directory.</p>
+<div class="searchrow"><input id="search" class="search" placeholder="Search tools, tasks or categories… (e.g. resume, video, coding)" autocomplete="off"><div class="count" id="count">100+ tools</div></div>
+<div class="stats"><div class="stat"><b id="total">100+</b> curated tools</div><div class="stat"><b>15</b> categories</div><div class="stat"><b>Free & Paid</b> options</div></div>
+</section>
+<div class="toolbar"><div class="filters" id="filters"></div><select id="sort" aria-label="Sort tools"><option value="az">Sort: A–Z</option><option value="za">Sort: Z–A</option></select></div>
+<div class="section-title"><h2 id="heading">Explore all tools</h2><span id="subheading">Click a tool to visit its official website</span></div>
+<div class="grid" id="grid"></div><div class="empty" id="empty">No tools found. Try another keyword or category.</div>
+<footer><div><strong>AI ToolBox</strong><br>A growing directory of AI products. Availability, features and free plans may change; check each provider's official site.</div><div>Some tools offer free tiers, while others require payment. This directory does not imply endorsement or affiliation.</div></footer>
+</div>
+<script>
+const tools = [
+["ChatGPT","Writing & Chat","General AI assistant for writing, brainstorming, analysis and everyday tasks.","https://chatgpt.com/","💬","General"],
+["Claude","Writing & Chat","Writing, reasoning, document analysis and coding assistance.","https://claude.ai/","🟠","General"],
+["Google Gemini","Writing & Chat","Google's AI assistant for questions, ideas and multimodal tasks.","https://gemini.google.com/","✦","General"],
+["Microsoft Copilot","Writing & Chat","AI assistant for answers, ideas and Microsoft workflows.","https://copilot.microsoft.com/","🌐","General"],
+["Meta AI","Writing & Chat","AI assistant for chatting, ideas and image creation where available.","https://www.meta.ai/","∞","General"],
+["Poe","Writing & Chat","Explore and compare assistants and bots in one place.","https://poe.com/","🤖","General"],
+["HuggingChat","Writing & Chat","Chat with open-source AI models.","https://huggingface.co/chat/","🤗","General"],
+["You.com","Writing & Chat","AI search and assistant tools for research and writing.","https://you.com/","🔎","General"],
+["Pi","Writing & Chat","Conversational AI designed for natural, supportive chats.","https://pi.ai/","🌱","General"],
+["Character.AI","Writing & Chat","Chat with user-created AI characters.","https://character.ai/","🎭","General"],
+["Perplexity","Research & Search","AI-powered search with source-linked answers.","https://www.perplexity.ai/","🔍","Research"],
+["Elicit","Research & Search","Find and synthesize academic research papers.","https://elicit.com/","📚","Research"],
+["Consensus","Research & Search","Search scientific papers and evidence-based findings.","https://consensus.app/","🧪","Research"],
+["Semantic Scholar","Research & Search","Discover academic papers and related research.","https://www.semanticscholar.org/","📖","Research"],
+[" scite","Research & Search","Explore how research papers are cited and discussed.","https://scite.ai/","🧾","Research"],
+["ResearchRabbit","Research & Search","Map papers, authors and research connections.","https://www.researchrabbit.ai/","🐇","Research"],
+["NotebookLM","Research & Search","Ask questions and create summaries from your sources.","https://notebooklm.google.com/","📓","Research"],
+["Genspark","Research & Search","AI-powered research and task assistance.","https://www.genspark.ai/","✨","Research"],
+["Exa","Research & Search","Search engine and API for finding relevant web content.","https://exa.ai/","🌐","Research"],
+["Wolfram Alpha","Research & Search","Computational answers for math, science and data questions.","https://www.wolframalpha.com/","∑","Research"],
+["Grammarly","Writing & Editing","Improve grammar, clarity, tone and professional writing.","https://www.grammarly.com/","✍️","Writing"],
+["QuillBot","Writing & Editing","Paraphrase, summarize and check writing.","https://quillbot.com/","🪶","Writing"],
+["Wordtune","Writing & Editing","Rewrite sentences and adjust tone.","https://www.wordtune.com/","📝","Writing"],
+["DeepL Write","Writing & Editing","Polish writing and improve phrasing.","https://www.deepl.com/write","🌍","Writing"],
+["LanguageTool","Writing & Editing","Grammar, spelling and style checking.","https://languagetool.org/","🔤","Writing"],
+["Sudowrite","Writing & Editing","Creative-writing assistant for fiction writers.","https://www.sudowrite.com/","📕","Writing"],
+["Jasper","Writing & Editing","AI content creation for marketing teams.","https://www.jasper.ai/","🟠","Writing"],
+["Copy.ai","Writing & Editing","Generate marketing copy and sales content.","https://www.copy.ai/","📣","Writing"],
+["Writesonic","Writing & Editing","AI writing and content workflows.","https://writesonic.com/","⚡","Writing"],
+["Rytr","Writing & Editing","Draft emails, descriptions and short-form content.","https://rytr.me/","🖊️","Writing"],
+["HyperWrite","Writing & Editing","Writing assistance and personalized drafting.","https://www.hyperwriteai.com/","⌨️","Writing"],
+["Canva","Image & Design","Design social posts, presentations and graphics with AI features.","https://www.canva.com/","🎨","Design"],
+["Adobe Firefly","Image & Design","Generate and edit images and creative assets.","https://firefly.adobe.com/","🔥","Design"],
+["Leonardo AI","Image & Design","Create images, illustrations and game assets.","https://leonardo.ai/","🦁","Design"],
+["Ideogram","Image & Design","Generate images, posters and text-heavy designs.","https://ideogram.ai/","🔠","Design"],
+["Midjourney","Image & Design","Create stylized AI-generated images.","https://www.midjourney.com/","🌌","Design"],
+["Recraft","Image & Design","Create vector graphics, icons and brand visuals.","https://www.recraft.ai/","🧩","Design"],
+["Krea","Image & Design","AI image generation, enhancement and real-time visuals.","https://www.krea.ai/","💠","Design"],
+["Playground","Image & Design","Create and edit images with AI tools.","https://playground.com/","🛝","Design"],
+["Dream by WOMBO","Image & Design","Generate artwork from text prompts.","https://dream.ai/","🌈","Design"],
+["Remove.bg","Image & Design","Remove image backgrounds automatically.","https://www.remove.bg/","✂️","Design"],
+["Photoroom","Image & Design","Make product photos and remove backgrounds.","https://www.photoroom.com/","📸","Design"],
+["Clipdrop","Image & Design","Image cleanup, relighting and background tools.","https://clipdrop.co/","🪄","Design"],
+["Upscayl","Image & Design","Upscale images using an open-source desktop app.","https://upscayl.org/","🔎","Design"],
+["Microsoft Designer","Image & Design","Create graphics and designs with AI assistance.","https://designer.microsoft.com/","🖼️","Design"],
+["Figma AI","Image & Design","AI features for design and collaborative product workflows.","https://www.figma.com/","🔷","Design"],
+["CapCut","Video","Edit videos and create short-form content with AI features.","https://www.capcut.com/","🎬","Video"],
+["Runway","Video","Generate and edit video using AI tools.","https://runwayml.com/","🎥","Video"],
+["Pika","Video","Create and transform videos with AI.","https://pika.art/","⚡","Video"],
+["Luma Dream Machine","Video","Generate video clips from prompts and images.","https://lumalabs.ai/dream-machine","🌙","Video"],
+["Kling AI","Video","AI video generation and creative editing.","https://klingai.com/","🎞️","Video"],
+["InVideo AI","Video","Turn prompts and scripts into videos.","https://invideo.io/","📹","Video"],
+["HeyGen","Video","Create avatar-led videos and translations.","https://www.heygen.com/","🧑‍💻","Video"],
+["Synthesia","Video","Create presenter-style business and training videos.","https://www.synthesia.io/","🗣️","Video"],
+["Descript","Video","Edit video and audio by editing the transcript.","https://www.descript.com/","🎛️","Video"],
+["VEED","Video","Browser-based video editing, subtitles and AI tools.","https://www.veed.io/","✂️","Video"],
+["OpusClip","Video","Turn long videos into short social clips.","https://www.opus.pro/","📱","Video"],
+["Wisecut","Video","Automate pauses, captions and edits for talking videos.","https://www.wisecut.video/","✂️","Video"],
+["ElevenLabs","Audio & Voice","Generate natural-sounding AI voices and audio.","https://elevenlabs.io/","🎙️","Audio"],
+["Suno","Audio & Voice","Generate songs from text prompts.","https://suno.com/","🎵","Audio"],
+["Udio","Audio & Voice","Create AI-generated music and songs.","https://www.udio.com/","🎼","Audio"],
+["Adobe Podcast","Audio & Voice","Enhance speech and record clearer podcasts.","https://podcast.adobe.com/","🎧","Audio"],
+["Auphonic","Audio & Voice","Automatically level and clean audio recordings.","https://auphonic.com/","🔊","Audio"],
+["Krisp","Audio & Voice","Reduce background noise in calls and recordings.","https://krisp.ai/","🔇","Audio"],
+["Whisper","Audio & Voice","OpenAI speech-recognition model and transcription technology.","https://github.com/openai/whisper","🗒️","Audio"],
+["Otter.ai","Audio & Voice","Transcribe meetings and summarize conversations.","https://otter.ai/","🦦","Audio"],
+["Fireflies.ai","Audio & Voice","Record, transcribe and search meeting conversations.","https://fireflies.ai/","🔥","Audio"],
+["Murf AI","Audio & Voice","Create voiceovers for presentations and videos.","https://murf.ai/","🎤","Audio"],
+["GitHub Copilot","Coding & Development","AI coding assistance inside supported development environments.","https://github.com/features/copilot","🐙","Coding"],
+["Cursor","Coding & Development","AI-powered code editor and development assistant.","https://cursor.com/","🖱️","Coding"],
+["Windsurf","Coding & Development","AI-assisted coding IDE and agentic workflows.","https://windsurf.com/","🏄","Coding"],
+["Replit","Coding & Development","Build, run and deploy apps with an online coding workspace.","https://replit.com/","🧑‍💻","Coding"],
+["Bolt.new","Coding & Development","Generate web applications from natural-language prompts.","https://bolt.new/","⚡","Coding"],
+["Lovable","Coding & Development","Build web apps from prompts with a visual workflow.","https://lovable.dev/","💜","Coding"],
+["v0","Coding & Development","Generate user interfaces and frontend code from prompts.","https://v0.dev/","▲","Coding"],
+["Codeium","Coding & Development","AI code completion and developer tools.","https://codeium.com/","💻","Coding"],
+["Tabnine","Coding & Development","AI code completion for development teams.","https://www.tabnine.com/","⌨️","Coding"],
+["Sourcegraph Cody","Coding & Development","AI coding assistant for understanding codebases.","https://sourcegraph.com/cody","🔍","Coding"],
+["Phind","Coding & Development","Search and answers tailored for developers.","https://www.phind.com/","🧑‍💻","Coding"],
+["Blackbox AI","Coding & Development","AI coding assistance and code search.","https://www.blackbox.ai/","⬛","Coding"],
+["DeepSeek","Coding & Development","AI models and assistant for reasoning and coding tasks.","https://www.deepseek.com/","🐳","Coding"],
+["HubSpot","Business & Marketing","CRM, marketing and sales tools with AI features.","https://www.hubspot.com/","🟠","Business"],
+["Apollo.io","Business & Marketing","B2B prospecting, contact data and sales engagement.","https://www.apollo.io/","🚀","Business"],
+["Clay","Business & Marketing","Enrich leads and build automated data workflows.","https://www.clay.com/","🧱","Business"],
+["Instantly","Business & Marketing","Cold email outreach and sales engagement platform.","https://instantly.ai/","📨","Business"],
+["Smartlead","Business & Marketing","Email outreach and campaign management.","https://www.smartlead.ai/","📬","Business"],
+["Hunter.io","Business & Marketing","Find and verify professional email addresses.","https://hunter.io/","🎯","Business"],
+["Snov.io","Business & Marketing","Lead generation, email finding and outreach tools.","https://snov.io/","❄️","Business"],
+["Lavender","Business & Marketing","AI email coaching for sales and outreach.","https://www.lavender.ai/","💜","Business"],
+["Surfer SEO","Business & Marketing","SEO content planning and optimization.","https://surferseo.com/","🏄","Business"],
+["Semrush","Business & Marketing","SEO, keyword research and digital marketing toolkit.","https://www.semrush.com/","📈","Business"],
+["Ahrefs","Business & Marketing","SEO research, backlinks and content analysis.","https://ahrefs.com/","🔗","Business"],
+["Predis.ai","Business & Marketing","Generate social media content and creatives.","https://predis.ai/","📣","Business"],
+["AdCreative.ai","Business & Marketing","Generate advertising creatives and marketing assets.","https://www.adcreative.ai/","📢","Business"],
+["Notion AI","Productivity & Notes","Write, summarize and organize work in Notion.","https://www.notion.so/product/ai","📓","Productivity"],
+["ClickUp AI","Productivity & Notes","AI assistance for tasks, docs and project management.","https://clickup.com/ai","✅","Productivity"],
+["Mem","Productivity & Notes","AI-powered notes and personal knowledge management.","https://mem.ai/","🧠","Productivity"],
+["Taskade","Productivity & Notes","AI agents, task lists and collaborative project spaces.","https://www.taskade.com/","📋","Productivity"],
+["Reclaim AI","Productivity & Notes","Schedule tasks, habits and meetings automatically.","https://reclaim.ai/","📅","Productivity"],
+["Motion","Productivity & Notes","Plan tasks and calendars with AI scheduling.","https://www.usemotion.com/","⏱️","Productivity"],
+["Gamma","Productivity & Notes","Create presentations, documents and webpages from prompts.","https://gamma.app/","🌀","Productivity"],
+["Beautiful.ai","Productivity & Notes","Build polished presentations with smart layouts.","https://www.beautiful.ai/","📊","Productivity"],
+["Tome","Productivity & Notes","AI-assisted storytelling and presentation workflows.","https://tome.app/","📔","Productivity"],
+["Napkin AI","Productivity & Notes","Turn written ideas into visual diagrams and graphics.","https://www.napkin.ai/","🧻","Productivity"],
+["Zapier","Automation","Connect apps and automate repetitive workflows.","https://zapier.com/","⚙️","Automation"],
+["Make","Automation","Build visual workflows across apps and services.","https://www.make.com/","🧩","Automation"],
+["n8n","Automation","Build flexible workflow automations with integrations.","https://n8n.io/","🔀","Automation"],
+["IFTTT","Automation","Connect services and automate simple tasks.","https://ifttt.com/","🔗","Automation"],
+["Bardeen","Automation","Automate browser-based research and repetitive work.","https://www.bardeen.ai/","🪄","Automation"],
+["Browse AI","Automation","Monitor websites and extract structured data.","https://www.browse.ai/","🕸️","Automation"],
+["Airtable AI","Automation","Organize data and build workflows with AI features.","https://www.airtable.com/","🗃️","Automation"],
+["Google AI Studio","AI Platforms","Prototype with Google's generative AI models.","https://aistudio.google.com/","🧪","Platforms"],
+["Hugging Face","AI Platforms","Explore models, datasets and machine-learning demos.","https://huggingface.co/","🤗","Platforms"],
+["Replicate","AI Platforms","Run open-source machine-learning models through APIs.","https://replicate.com/","🔁","Platforms"],
+["OpenRouter","AI Platforms","Access multiple AI models through one API.","https://openrouter.ai/","🔀","Platforms"],
+["Ollama","AI Platforms","Run supported language models locally on your computer.","https://ollama.com/","🦙","Platforms"],
+["LM Studio","AI Platforms","Download and run language models locally.","https://lmstudio.ai/","🖥️","Platforms"],
+["Together AI","AI Platforms","Access and run open models through APIs.","https://www.together.ai/","🤝","Platforms"],
+["Groq","AI Platforms","Run AI models with low-latency inference services.","https://groq.com/","⚡","Platforms"],
+["Pinecone","AI Platforms","Vector database for AI search and retrieval apps.","https://www.pinecone.io/","🌲","Platforms"],
+["Weaviate","AI Platforms","Open-source vector database for AI applications.","https://weaviate.io/","🧬","Platforms"],
+["Teachable Machine","Learning & Education","Train simple image, sound and pose models in a browser.","https://teachablemachine.withgoogle.com/","🎓","Education"],
+["Khanmigo","Learning & Education","AI learning assistant from Khan Academy.","https://www.khanacademy.org/khan-labs","📘","Education"],
+["Quizlet","Learning & Education","Study tools, flashcards and AI-supported learning.","https://quizlet.com/","🃏","Education"],
+["Duolingo Max","Learning & Education","AI-powered language learning features in supported regions.","https://www.duolingo.com/","🦉","Education"],
+["Photomath","Learning & Education","Get step-by-step help with math problems.","https://photomath.com/","➗","Education"],
+["MagicSchool AI","Learning & Education","AI tools designed for educators and classrooms.","https://www.magicschool.ai/","🏫","Education"],
+["Socratic","Learning & Education","Learning support for school subjects.","https://socratic.org/","💡","Education"],
+["DeepL","Translation","Translate text and documents across languages.","https://www.deepl.com/translator","🌍","Translation"],
+["Google Translate","Translation","Translate text, documents and conversations.","https://translate.google.com/","🗺️","Translation"],
+["ElevenLabs Dubbing","Translation","Dub supported audio and video into other languages.","https://elevenlabs.io/dubbing","🎙️","Translation"],
+["Rask AI","Translation","Translate and dub videos for international audiences.","https://www.rask.ai/","🌐","Translation"],
+["Maestra","Translation","Transcription, subtitles and media translation tools.","https://maestra.ai/","💬","Translation"]
+];
+const categories=["All","Writing & Chat","Research & Search","Writing & Editing","Image & Design","Video","Audio & Voice","Coding & Development","Business & Marketing","Productivity & Notes","Automation","AI Platforms","Learning & Education","Translation"];
+let active="All";
+const grid=document.getElementById("grid"), search=document.getElementById("search"), filters=document.getElementById("filters");
+function makeFilters(){filters.innerHTML="";categories.forEach(c=>{let b=document.createElement("button");b.className="filter"+(c===active?" active":"");b.textContent=c;b.onclick=()=>{active=c;makeFilters();render()};filters.appendChild(b)})}
+function render(){
+ const q=search.value.toLowerCase().trim();let list=tools.filter(t=>(active==="All"||t[1]===active)&&t.slice(0,3).join(" ").toLowerCase().includes(q));
+ if(document.getElementById("sort").value==="az")list.sort((a,b)=>a[0].localeCompare(b[0]));else list.sort((a,b)=>b[0].localeCompare(a[0]));
+ grid.innerHTML="";list.forEach(t=>{const card=document.createElement("article");card.className="card";card.innerHTML=`<div class="cardtop"><div class="appicon">${t[4]}</div><div><h3>${t[0]}</h3><div class="type">${t[1]}</div></div></div><p>${t[2]}</p><div class="bottom"><span class="tag">${t[5]}</span><a class="visit" href="${t[3]}" target="_blank" rel="noopener noreferrer">Visit official site ↗</a></div>`;grid.appendChild(card)});
+ document.getElementById("count").textContent=list.length+" tools";document.getElementById("total").textContent=tools.length;document.getElementById("heading").textContent=active==="All"?"Explore all tools":active;document.getElementById("subheading").textContent=`Showing ${list.length} of ${tools.length} tools`;document.getElementById("empty").style.display=list.length?"none":"block";grid.style.display=list.length?"grid":"none";
+}
+search.addEventListener("input",render);document.getElementById("sort").addEventListener("change",render);makeFilters();render();
+</script>
+</body>
+</html>
